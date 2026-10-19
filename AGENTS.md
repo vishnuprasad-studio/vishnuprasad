@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep this portfolio on the existing TanStack Start route architecture and store résumé-backed profile content in `src/lib/data.ts`, so every public claim has one auditable source.
