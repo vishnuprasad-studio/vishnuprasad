@@ -30,7 +30,7 @@ import {
 const sections = ["about", "skills", "work", "certifications", "experience", "achievements", "contact"];
 const families = ["All", ...SKILL_GROUPS.map((group) => group.name)];
 const allSkills = SKILL_GROUPS.flatMap((group) => group.skills);
-const socialIcons: Record<string, typeof Github> = { GitHub: Github, LinkedIn, Behance: ExternalLink, Linktree: ExternalLink };
+const socialIcons: Record<string, typeof Github> = { GitHub: Github, LinkedIn: Linkedin, Behance: ExternalLink, Linktree: ExternalLink };
 
 function SectionLabel({ number, label }: { number: string; label: string }) {
   return <p className="section-kicker"><span>{number}</span><span>—</span><span>{label}</span></p>;
