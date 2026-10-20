@@ -83,7 +83,7 @@ def main() -> None:
         still = temporary_path / "still.jpg"
         run([
             "ffmpeg", "-y", "-ss", "2", "-i", str(options.input), "-frames:v", "1",
-            "-vf", "crop=600:750:660:40,scale=480:600:flags=lanczos", str(still),
+            "-vf", "crop=600:750:660:40,scale=480:600:flags=lanczos", "-update", "1", str(still),
         ])
         Image.open(still).convert("RGB").save(output / "portrait-bust.webp", "WEBP", quality=88, method=6)
         Image.open(still).convert("RGB").resize((1200, 630), Image.Resampling.LANCZOS).save(output / "og.jpg", quality=88, optimize=True)
