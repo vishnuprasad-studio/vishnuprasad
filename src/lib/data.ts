@@ -1,3 +1,5 @@
+import resumeAsset from "@/assets/Vishnu_Prasad_UIUX.pdf.asset.json";
+
 export const PROFILE = {
   name: "Vishnu Prasad",
   firstName: "Vishnu",
@@ -6,7 +8,7 @@ export const PROFILE = {
   phone: "+91 9746249297",
   phoneHref: "tel:+919746249297",
   location: "Kochi, Kerala, India",
-  resume: "/resume.pdf",
+  resume: resumeAsset.url,
   summary:
     "UI/UX Designer with 4+ years of experience designing applications with real functional complexity: dashboards, workflows, and multi-role systems. Portfolio includes a government platform redesign serving 500,000+ users across 20+ modules and a 4-platform transit ecosystem. Strong Figma command across component libraries, variants, interactive prototyping, and design systems. Works alongside developers through design handoff and build, and explains design decisions clearly to clients, stakeholders, and leadership.",
   links: [

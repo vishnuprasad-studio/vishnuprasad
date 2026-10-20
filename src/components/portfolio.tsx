@@ -192,7 +192,7 @@ export function Portfolio() {
           <button className="mobile-menu-trigger" type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-label="Open menu"><Menu size={15} />Menu</button>
         </div>
       </header>
-      <nav className="mobile-nav" data-open={menuOpen} aria-label="Mobile navigation" aria-hidden={!menuOpen}>
+      <nav className="mobile-nav" data-open={menuOpen} aria-label="Mobile navigation" aria-hidden={!menuOpen} inert={!menuOpen}>
         <div className="mobile-nav-top"><span className="eyebrow">Navigation</span><button className="mobile-nav-close" type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={18} /></button></div>
         {navLinks(() => setMenuOpen(false), true)}
       </nav>
