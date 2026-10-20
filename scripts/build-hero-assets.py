@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import subprocess
 import tempfile
-import wave
 from pathlib import Path
 
 import numpy as np
@@ -35,12 +34,12 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="vishnu-hero-") as temporary:
         temporary_path = Path(temporary)
         video_only = temporary_path / "loop-video.mp4"
-        audio_input = temporary_path / "input.wav"
-        audio_loop = temporary_path / "loop.wav"
+        audio_input = temporary_path / "input.f32le"
+        audio_loop = temporary_path / "loop.f32le"
         video_filter_graph = (
-            f"[0:v]{video_filter},trim=start=0.5:end=9.5,setpts=PTS-STARTPTS[body];"
-            f"[0:v]{video_filter},trim=start=9.5:end=10,setpts=PTS-STARTPTS[tail];"
-            f"[0:v]{video_filter},trim=start=0.5:end=1,setpts=PTS-STARTPTS[head];"
+            f"[0:v]{video_filter},trim=start=0.5:end=9,setpts=PTS-STARTPTS[body];"
+            f"[0:v]{video_filter},trim=start=9:end=9.5,setpts=PTS-STARTPTS[tail];"
+            f"[0:v]{video_filter},trim=start=0:end=0.5,setpts=PTS-STARTPTS[head];"
             f"[tail][head]xfade=transition=fade:duration=0.5:offset=0[seam];"
             "[body][seam]concat=n=2:v=1:a=0,setsar=1,format=yuv420p[outv]"
         )
@@ -52,34 +51,31 @@ def main() -> None:
 
         run([
             "ffmpeg", "-y", "-i", str(options.input), "-t", "10", "-vn", "-ac", "2",
-            "-ar", "48000", "-c:a", "pcm_f32le", str(audio_input),
+            "-ar", "48000", "-c:a", "pcm_f32le", "-f", "f32le", str(audio_input),
         ])
-        with wave.open(str(audio_input), "rb") as source:
-            rate, channels = source.getframerate(), source.getnchannels()
-            samples = np.frombuffer(source.readframes(source.getnframes()), dtype="<f4")
+        rate, channels = 48000, 2
+        samples = np.fromfile(audio_input, dtype="<f4")
         samples = samples.reshape(-1, channels)
         crossfade_samples = int(rate * crossfade)
         first = int(rate * crossfade)
-        last = int(rate * 9.5)
+        seam_start = int(rate * 9.0)
         blend = np.linspace(0, np.pi / 2, crossfade_samples, endpoint=True, dtype=np.float32)[:, None]
-        tail = samples[last:last + crossfade_samples]
-        head = samples[first:first + crossfade_samples]
+        tail = samples[seam_start:seam_start + crossfade_samples]
+        head = samples[:crossfade_samples]
         mixed = tail * np.cos(blend) + head * np.sin(blend)
-        seamless = np.concatenate((samples[first:last], mixed), axis=0)
-        with wave.open(str(audio_loop), "wb") as destination:
-            destination.setnchannels(channels)
-            destination.setsampwidth(4)
-            destination.setframerate(rate)
-            destination.writeframes(seamless.astype("<f4").tobytes())
+        seamless = np.concatenate((samples[first:seam_start], mixed), axis=0)
+        seamless.astype("<f4").tofile(audio_loop)
 
         mp4 = output / "hero.mp4"
         webm = output / "hero.webm"
         run([
-            "ffmpeg", "-y", "-i", str(video_only), "-i", str(audio_loop), "-map", "0:v:0", "-map", "1:a:0",
+            "ffmpeg", "-y", "-i", str(video_only), "-f", "f32le", "-ar", str(rate), "-ac", str(channels),
+            "-i", str(audio_loop), "-map", "0:v:0", "-map", "1:a:0",
             "-c:v", "copy", "-c:a", "aac", "-b:a", "96k", "-shortest", "-movflags", "+faststart", str(mp4),
         ])
         run([
-            "ffmpeg", "-y", "-i", str(video_only), "-i", str(audio_loop), "-map", "0:v:0", "-map", "1:a:0",
+            "ffmpeg", "-y", "-i", str(video_only), "-f", "f32le", "-ar", str(rate), "-ac", str(channels),
+            "-i", str(audio_loop), "-map", "0:v:0", "-map", "1:a:0",
             "-c:v", "libvpx-vp9", "-crf", "36", "-b:v", "0", "-c:a", "libopus", "-b:a", "80k",
             "-shortest", str(webm),
         ])
@@ -87,7 +83,7 @@ def main() -> None:
         still = temporary_path / "still.jpg"
         run([
             "ffmpeg", "-y", "-ss", "2", "-i", str(options.input), "-frames:v", "1",
-            "-vf", "crop=600:750:660:40,scale=480:600:flags=lanczos", str(still),
+            "-vf", "crop=600:750:660:40,scale=480:600:flags=lanczos", "-update", "1", str(still),
         ])
         Image.open(still).convert("RGB").save(output / "portrait-bust.webp", "WEBP", quality=88, method=6)
         Image.open(still).convert("RGB").resize((1200, 630), Image.Resampling.LANCZOS).save(output / "og.jpg", quality=88, optimize=True)
