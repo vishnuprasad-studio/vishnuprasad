@@ -293,3 +293,17 @@
   .skill-symbol { font-size: 1rem; }
   .skill-name { font-size: 0.56rem; }
 }
+
+@media (max-width: 900px) {
+  .skills-layout { grid-template-columns: minmax(0, 1fr); }
+  .skill-inspector { position: static; min-height: 0; }
+}
+@media (max-width: 700px) {
+  .skill-controls { flex-wrap: nowrap; overflow-x: auto; margin-inline: -1rem; padding: 0 1rem 0.4rem; scrollbar-width: none; }
+  .filter-chip { flex: 0 0 auto; }
+  .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .skill-tile { aspect-ratio: auto; min-height: 5.6rem; gap: 0.4rem; }
+  .skill-name { font-size: 0.7rem; overflow-wrap: break-word; }
+}
+@media (max-width: 380px) { .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.skill-tile { animation-delay: calc(min(var(--tile-order, 0), 12) * 28ms); }
