@@ -23,6 +23,7 @@ export const NAV = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Work", href: "#work" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Experience", href: "#experience" },
   { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
@@ -102,6 +103,8 @@ export const PROJECTS = [
     description: "Redesigned 20+ modules for 500,000+ users, streamlining workflows and applying WCAG 2.1 AA accessibility standards. Migrated a legacy UI to a modern, component-based Figma design system.",
     features: ["20+ platform modules", "500,000+ users", "WCAG 2.1 AA", "Reusable Figma system"],
     visual: "systems",
+    role: "National Informatics Center · Design lead",
+    metrics: [{ value: "500K+", label: "users served" }, { value: "20+", label: "modules redesigned" }, { value: "85%", label: "fewer UI inconsistencies" }],
   },
   {
     title: "OneDI Transit Ecosystem",
@@ -109,6 +112,8 @@ export const PROJECTS = [
     description: "Designed a unified, responsive experience across 4 interconnected platforms with a 95% QR-ticketing success rate. Built a scalable component library supporting multiple user roles.",
     features: ["QR ticketing", "Payments", "Fleet management", "Multiple user roles"],
     visual: "transit",
+    role: "Technovia · Sole designer",
+    metrics: [{ value: "4", label: "connected platforms" }, { value: "95%", label: "QR-ticketing success" }, { value: "40%", label: "fewer revision cycles" }],
   },
   {
     title: "Zodi Mithra",
@@ -116,6 +121,8 @@ export const PROJECTS = [
     description: "Built bento-style dashboards and consultant-facing workspaces on a component-based Figma design system with reusable variants and a shared style guide.",
     features: ["Bento-style dashboards", "Consultant workspaces", "Reusable variants", "Shared style guide"],
     visual: "workspace",
+    role: "Thriveminds · Design lead",
+    metrics: [{ value: "Bento", label: "dashboard system" }, { value: "Figma", label: "reusable variants" }, { value: "1", label: "shared style guide" }],
   },
   {
     title: "Zavinos",
@@ -123,6 +130,8 @@ export const PROJECTS = [
     description: "Led UX and UI design for an ultra-premium DTC e-commerce website, creating a conversion-focused homepage and a custom made-to-measure purchase flow. Created user flows and annotated wireframes for its product configurator.",
     features: ["Custom purchase flow", "Product configurator", "User flows", "Annotated wireframes"],
     visual: "commerce",
+    role: "Thriveminds · UX & UI lead",
+    metrics: [{ value: "DTC", label: "ultra-premium store" }, { value: "MTM", label: "made-to-measure flow" }, { value: "Flows", label: "annotated wireframes" }],
   },
   {
     title: "Lexanber",
@@ -130,6 +139,8 @@ export const PROJECTS = [
     description: "Worked with developers on design handoff and iterated on layout and interaction paths for a core product page, based on user feedback and design-system updates.",
     features: ["Core product page", "Developer handoff", "User feedback", "Design-system updates"],
     visual: "product",
+    role: "Thriveminds · UI/UX designer",
+    metrics: [{ value: "Handoff", label: "with developers" }, { value: "Iterated", label: "layout & interactions" }, { value: "Feedback", label: "user-driven updates" }],
   },
 ];
 
@@ -166,6 +177,15 @@ export const EXPERIENCE = [
     ],
   },
   {
+    dates: "Dec 2024 – Feb 2025",
+    role: "Graphic Designer (Freelance)",
+    company: "CareBharth Insurance Brokers Pvt Ltd",
+    location: "Kochi, Kerala, India · evenings/weekends alongside full-time role",
+    details: [
+      "Designed marketing campaigns that increased social media engagement by 25%, with visual assets optimized for SEO and brand visibility.",
+    ],
+  },
+  {
     dates: "May 2023 – Mar 2025",
     role: "UI/UX Designer",
     company: "Technovia Info Solutions Pvt Ltd",
@@ -174,15 +194,6 @@ export const EXPERIENCE = [
       "Sole designer for the OneDI transit ecosystem, setting design standards across 4 interconnected, data-driven platforms covering QR ticketing, payments, and fleet management.",
       "Built an end-to-end design process (research, wireframes, interactive prototyping, usability review) that cut revision cycles by 40%.",
       "Delivered scalable, reusable component libraries within a shared design system that kept supporting the company's design operations after handoff.",
-    ],
-  },
-  {
-    dates: "Dec 2024 – Feb 2025",
-    role: "Graphic Designer (Freelance)",
-    company: "CareBharth Insurance Brokers Pvt Ltd",
-    location: "Kochi, Kerala, India · evenings/weekends alongside full-time role",
-    details: [
-      "Designed marketing campaigns that increased social media engagement by 25%, with visual assets optimized for SEO and brand visibility.",
     ],
   },
   {

@@ -307,3 +307,10 @@
 }
 @media (max-width: 380px) { .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .skill-tile { animation-delay: calc(min(var(--tile-order, 0), 12) * 28ms); }
+
+.case-study { display: grid; gap: 0.6rem; align-self: stretch; padding: 1.1rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--secondary); }
+.case-role { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); }
+.case-metric { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; padding-top: 0.6rem; border-top: 1px solid var(--border); }
+.case-metric strong { font-size: clamp(1.2rem, 2.4vw, 1.9rem); font-weight: 560; letter-spacing: -0.03em; }
+.case-metric span { font-size: 0.72rem; color: var(--muted-foreground); text-align: right; }
+.skill-grid { row-gap: 0.55rem; }
