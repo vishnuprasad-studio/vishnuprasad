@@ -34,64 +34,65 @@ export type Skill = {
   symbol: string;
   family: string;
   projectNote?: string;
+  note?: string;
 };
 
 export const SKILL_GROUPS = [
   {
     name: "Product design",
     skills: [
-      { name: "Figma", symbol: "Fg", family: "Product design", projectNote: "Named in the SPARK 2.0 and Zodi Mithra design-system work." },
-      { name: "Components", symbol: "Co", family: "Product design" },
-      { name: "Variants", symbol: "Va", family: "Product design" },
-      { name: "Interactive prototyping", symbol: "Pr", family: "Product design" },
-      { name: "Low/high-fidelity wireframing", symbol: "Wi", family: "Product design" },
-      { name: "Annotated wireframes", symbol: "An", family: "Product design" },
-      { name: "User flows", symbol: "Uf", family: "Product design" },
-      { name: "UX research & usability studies", symbol: "Ux", family: "Product design" },
-      { name: "Information architecture", symbol: "Ia", family: "Product design" },
-      { name: "Visual hierarchy", symbol: "Vh", family: "Product design" },
-      { name: "Typography", symbol: "Ty", family: "Product design" },
-      { name: "Colour theory", symbol: "Ct", family: "Product design" },
-      { name: "eCommerce design", symbol: "Ec", family: "Product design" },
+      { name: "Figma", symbol: "Fg", family: "Product design", projectNote: "Named in the SPARK 2.0 and Zodi Mithra design-system work.", note: "Primary design tool across every project in the résumé." },
+      { name: "Components", symbol: "Co", family: "Product design", note: "Reusable component libraries delivered on SPARK 2.0 and OneDI, still supporting design operations after handoff." },
+      { name: "Variants", symbol: "Va", family: "Product design", note: "Component variants inside shared style guides, including the Zodi Mithra design system." },
+      { name: "Interactive prototyping", symbol: "Pr", family: "Product design", note: "Interactive prototypes built as part of the OneDI end-to-end design process." },
+      { name: "Low/high-fidelity wireframing", symbol: "Wi", family: "Product design", note: "Wireframes carried from research through prototyping and usability review on OneDI." },
+      { name: "Annotated wireframes", symbol: "An", family: "Product design", note: "Created for the Zavinos product configurator to guide the purchase journey." },
+      { name: "User flows", symbol: "Uf", family: "Product design", note: "Mapped for Zavinos, balancing brand feel with usability to reduce purchase friction." },
+      { name: "UX research & usability studies", symbol: "Ux", family: "Product design", note: "Research and usability reviews anchored the OneDI end-to-end design process." },
+      { name: "Information architecture", symbol: "Ia", family: "Product design", note: "Structured across 20+ modules of the SPARK 2.0 government platform redesign." },
+      { name: "Visual hierarchy", symbol: "Vh", family: "Product design", note: "Applied with typography and colour theory across SPARK 2.0's modules." },
+      { name: "Typography", symbol: "Ty", family: "Product design", note: "Applied alongside colour theory and WCAG 2.1 AA standards on SPARK 2.0." },
+      { name: "Colour theory", symbol: "Ct", family: "Product design", note: "Applied with typography and WCAG 2.1 AA accessibility standards on SPARK 2.0." },
+      { name: "eCommerce design", symbol: "Ec", family: "Product design", note: "Conversion-focused homepage and made-to-measure flow for the Zavinos store." },
     ],
   },
   {
     name: "Design systems",
     skills: [
-      { name: "Design system architecture", symbol: "Ds", family: "Design systems" },
-      { name: "UI libraries", symbol: "Ui", family: "Design systems" },
-      { name: "Design tokens", symbol: "Dt", family: "Design systems" },
-      { name: "Component variants", symbol: "Cv", family: "Design systems" },
-      { name: "WCAG 2.1 AA", symbol: "Wa", family: "Design systems" },
+      { name: "Design system architecture", symbol: "Ds", family: "Design systems", note: "Architected the scalable Figma design system for SPARK 2.0, later adopted across future government web applications." },
+      { name: "UI libraries", symbol: "Ui", family: "Design systems", note: "Built a UI library that helped reduce UI inconsistencies by 85%." },
+      { name: "Design tokens", symbol: "Dt", family: "Design systems", note: "Standardized tokens that helped cut design time by 50%." },
+      { name: "Component variants", symbol: "Cv", family: "Design systems", note: "Reusable variants across the Zodi Mithra shared style guide." },
+      { name: "WCAG 2.1 AA", symbol: "Wa", family: "Design systems", note: "Accessibility standard applied across all 20+ SPARK 2.0 modules for 500,000+ users." },
     ],
   },
   {
     name: "Front-end",
     skills: [
-      { name: "HTML5", symbol: "H5", family: "Front-end" },
-      { name: "CSS3", symbol: "C3", family: "Front-end" },
-      { name: "Tailwind CSS", symbol: "Tw", family: "Front-end" },
-      { name: "JavaScript (working knowledge)", symbol: "Js", family: "Front-end" },
+      { name: "HTML5", symbol: "H5", family: "Front-end", note: "Front-end foundation used to check build feasibility with developers before handoff." },
+      { name: "CSS3", symbol: "C3", family: "Front-end", note: "Supports handoff-ready specs and feasibility checks with developers." },
+      { name: "Tailwind CSS", symbol: "Tw", family: "Front-end", note: "Utility-first styling knowledge, backed by the Tailwind UI certification." },
+      { name: "JavaScript (working knowledge)", symbol: "Js", family: "Front-end", note: "Working knowledge, enough to speak precisely with developers during handoff." },
     ],
   },
   {
     name: "Tools",
     skills: [
-      { name: "Adobe Creative Suite", symbol: "Ad", family: "Tools" },
-      { name: "Illustrator", symbol: "Ai", family: "Tools" },
-      { name: "Photoshop", symbol: "Ps", family: "Tools" },
-      { name: "Sketch", symbol: "Sk", family: "Tools" },
-      { name: "InVision", symbol: "Iv", family: "Tools" },
+      { name: "Adobe Creative Suite", symbol: "Ad", family: "Tools", note: "Day-to-day tools for visual asset creation, certified in Photoshop and Illustrator." },
+      { name: "Illustrator", symbol: "Ai", family: "Tools", note: "Certified through the Adobe Photoshop and Illustrator certification." },
+      { name: "Photoshop", symbol: "Ps", family: "Tools", note: "Certified alongside Illustrator; used for brand and campaign assets." },
+      { name: "Sketch", symbol: "Sk", family: "Tools", note: "Vector-based UI design tool used for interface and wireframe work." },
+      { name: "InVision", symbol: "Iv", family: "Tools", note: "Prototyping tool used for interactive mockups and client validation." },
     ],
   },
   {
     name: "Collaboration",
     skills: [
-      { name: "Stakeholder presentations", symbol: "Sp", family: "Collaboration" },
-      { name: "Design rationale & decision advocacy", symbol: "Dr", family: "Collaboration" },
-      { name: "Developer & QA handoff", symbol: "Dh", family: "Collaboration" },
-      { name: "Agile sprints", symbol: "Ag", family: "Collaboration" },
-      { name: "Sole-designer ownership", symbol: "So", family: "Collaboration" },
+      { name: "Stakeholder presentations", symbol: "Sp", family: "Collaboration", note: "Presented design decisions and rationale to stakeholders across departments on SPARK 2.0." },
+      { name: "Design rationale & decision advocacy", symbol: "Dr", family: "Collaboration", note: "Explained design decisions clearly to clients, stakeholders, and leadership." },
+      { name: "Developer & QA handoff", symbol: "Dh", family: "Collaboration", note: "Delivered thorough handoffs and checked build feasibility with developers." },
+      { name: "Agile sprints", symbol: "Ag", family: "Collaboration", note: "Delivered design work within sprint-based product teams." },
+      { name: "Sole-designer ownership", symbol: "So", family: "Collaboration", note: "Owned the full design workload solo across the OneDI transit ecosystem." },
     ],
   },
 ];
