@@ -307,7 +307,7 @@ export function Portfolio() {
                   <span className="project-collapsed"><strong>{project.title}</strong><ArrowUpRight size={16} /></span>
                   <span className="project-open">
                     <span><span className="project-kicker">{project.category}</span><span className="project-open-title"><span className="sr-only">{project.title}</span></span><h3 aria-hidden="true">{project.title}</h3><p>{project.description}</p><span className="project-features">{project.features.map((feature) => <span className="project-feature" key={feature}>{feature}</span>)}</span></span>
-                    <ProjectIllustration type={project.visual} />
+                    <span className="case-study" aria-label="Case study summary"><span className="case-role">{project.role}</span>{project.metrics.map((metric) => <span className="case-metric" key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></span>)}</span>
                   </span>
                 </button>
               ))}
