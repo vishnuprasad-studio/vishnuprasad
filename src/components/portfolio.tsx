@@ -267,18 +267,17 @@ export function Portfolio() {
           <div className="page-shell">
             <div className="reveal"><SectionLabel number="02" label="Skills" /><h2 className="section-heading" id="skills-heading">My working<br /><em>vocabulary.</em></h2><p className="section-intro">A practice shaped by product design, accessible systems, and close collaboration.</p></div>
             <div className="skill-controls" aria-label="Filter skills by family">
-              {families.map((family) => <button className="filter-chip" type="button" key={family} data-selected={selectedFamily === family} aria-pressed={selectedFamily === family} onClick={() => setSelectedFamily(family)}>{family}</button>)}
+              {families.map((family) => <button className="filter-chip" type="button" key={family} data-selected={selectedFamily === family} aria-pressed={selectedFamily === family} onClick={() => { setSelectedFamily(family); const first = allSkills.find((s) => family === "All" || s.family === family); if (first) setSelectedSkill(first); }}>{family}</button>)}
             </div>
             <div className="skills-layout">
               <div className="skill-grid" aria-label="Skills">
-                {allSkills.map((skill, index) => (
+                {allSkills.filter((skill) => selectedFamily === "All" || skill.family === selectedFamily).map((skill, index) => (
                   <button
                     type="button"
                     className="skill-tile"
                     key={skill.name}
                     style={{ "--tile-order": index } as React.CSSProperties}
-                    data-dimmed={selectedFamily !== "All" && selectedFamily !== skill.family}
-                    aria-pressed={selectedSkill.name === skill.name}
+                                        aria-pressed={selectedSkill.name === skill.name}
                     onMouseEnter={() => setSelectedSkill(skill)}
                     onFocus={() => setSelectedSkill(skill)}
                     onClick={() => setSelectedSkill(skill)}
