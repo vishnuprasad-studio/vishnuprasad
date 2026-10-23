@@ -53,20 +53,6 @@ function useReveals() {
   }, []);
 }
 
-function ProjectIllustration({ type }: { type: string }) {
-  return (
-    <div className={`project-visual project-visual-${type}`} aria-label="Illustrative UI, not an original project screenshot">
-      <div className="visual-window" aria-hidden="true">
-        <div className="visual-bar"><i /><i /><i /></div>
-        <div className="visual-body">
-          <div className="visual-side"><i className="visual-line" /><i className="visual-line" /><i className="visual-line" /><i className="visual-line" /></div>
-          <div className="visual-content"><i className="visual-line" /><i className="visual-line" /><div className="visual-chart"><i /><i /><i /><i /><i /><i /></div></div>
-        </div>
-      </div>
-      <span className="visual-caption">Illustrative UI</span>
-    </div>
-  );
-}
 
 export function Portfolio() {
   useReveals();
