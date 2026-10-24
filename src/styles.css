@@ -332,3 +332,6 @@
   .impact-value { font-size: clamp(1.7rem, 8vw, 3.2rem); }
 }
 @media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
+.work-gallery { height: clamp(32rem, 64svh, 38rem); }
+.case-study { align-self: start; align-content: start; }
+.project-features { gap: 0.5rem 0.6rem; }
