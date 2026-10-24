@@ -172,7 +172,7 @@ export function Portfolio() {
       <header className="site-header">
         <div className="page-shell header-inner">
           <a className="brand-link" href="#top" aria-label={`${PROFILE.name}, back to top`}>
-            <span className="brand-mark">VP</span><span>{PROFILE.name}</span>
+            <img className="brand-mark brand-avatar" src="/brand-avatar.png" alt="" width={36} height={36} /><span>{PROFILE.name}</span>
           </a>
           <nav className="desktop-nav" aria-label="Main navigation">{navLinks()}</nav>
           <button className="mobile-menu-trigger" type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-label="Open menu"><Menu size={15} />Menu</button>
@@ -320,7 +320,7 @@ export function Portfolio() {
 
         <section className="impact-section section-wrap section-space" id="achievements" aria-labelledby="impact-heading">
           <div className="page-shell">
-            <div className="impact-header reveal"><div><SectionLabel number="06" label="Selected outcomes" /><h2 className="section-heading" id="impact-heading">Measured<br /><em>impact.</em></h2></div><span className="impact-count">From the résumé</span></div>
+            <div className="impact-header reveal"><div><SectionLabel number="06" label="Selected outcomes" /><h2 className="section-heading" id="impact-heading">Measured<br /><em>impact.</em></h2></div></div>
             <div className="impact-grid">{ACHIEVEMENTS.map((item) => <article className="impact-card reveal" key={item.index} style={{ "--reveal-order": Number(item.index) % 3 } as React.CSSProperties}><span className="impact-index">{item.index} / 06</span><strong className="impact-value">{item.value}</strong><span className="impact-label">{item.label}</span></article>)}</div>
           </div>
         </section>
