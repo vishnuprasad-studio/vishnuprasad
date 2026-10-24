@@ -37,7 +37,7 @@ export type Skill = {
   note?: string;
 };
 
-export const SKILL_GROUPS = [
+export const SKILL_GROUPS: { name: string; skills: Skill[] }[] = [
   {
     name: "Product design",
     skills: [
