@@ -314,3 +314,21 @@
 .case-metric strong { font-size: clamp(1.2rem, 2.4vw, 1.9rem); font-weight: 560; letter-spacing: -0.03em; }
 .case-metric span { font-size: 0.72rem; color: var(--muted-foreground); text-align: right; }
 .skill-grid { row-gap: 0.55rem; }
+
+/* Logo avatar, outcome numbers and project spacing */
+.brand-avatar { object-fit: cover; padding: 0; background: var(--secondary); }
+.brand-link:hover .brand-avatar { transform: scale(1.08); background: var(--secondary); }
+.impact-card { min-width: 0; }
+.impact-value { overflow-wrap: anywhere; font-size: clamp(2rem, 4.2vw, 4.4rem); }
+.work-gallery { height: clamp(36rem, 78svh, 48rem); }
+.project-panel { padding: 1.4rem 1.4rem 1.6rem; }
+.project-open { align-items: start; padding: 1.6rem 1.1rem 0.8rem; overflow-y: auto; }
+.project-features { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.2rem; }
+.case-study { gap: 0.8rem; padding: 1.3rem; }
+@media (max-width: 900px) {
+  .work-gallery { height: auto; gap: 0.75rem; }
+  .project-panel { padding: 1.1rem 1.1rem 1.4rem; }
+  .project-open, .project-panel[data-expanded="true"] .project-open { gap: 1.6rem; padding: 1.4rem 0.2rem 0.6rem; overflow: visible; }
+  .impact-value { font-size: clamp(1.7rem, 8vw, 3.2rem); }
+}
+@media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
